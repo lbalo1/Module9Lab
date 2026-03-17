@@ -1,0 +1,32 @@
+﻿@page // Define this file as a razor page that can handle HTTP request 
+@model MyApp.Namespace.CustomersModel // Specifies the model type that model type 
+//that provides data and functionality
+
+@{
+    //C# Code block where server side code runs
+    ViewData["Title"] = "Customers"; // Set the page title in the tub
+}
+
+<h> @ViewData["Title"] </h>
+
+<table class = "table">
+    <thread><tr>
+        <th> Customer ID </th>
+        <th> Company Name </th>
+        <th> Contact Name </th>
+        <th> Country </th>
+        </thread></tr>
+    <tbody>
+        @foreach (var customer in Model.Customers){
+            <tr>
+                <td>@customer.CustomerID</td>
+                <td>@customer.CompanyName</td> 
+                <td>@customer.ContactName</td>
+                <td>@customer.Country</td>
+
+            </tr> 
+        }
+    </tbody>
+</table>
+
+ 
