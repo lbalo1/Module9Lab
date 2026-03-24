@@ -9,6 +9,8 @@ namespace MyApp.Namespace
     public class ProductsModel : PageModel
     {
         public List<Product> Products { get; set; }
+
+        // This runs when the page loads 
         public void OnGet()
        {
             Products = new List<Product>();
@@ -16,7 +18,10 @@ namespace MyApp.Namespace
        
             using (SqlConnection connection = new SqlConnection(connectionString))
         {
+            // Open the connection to the database
             connection.Open();
+
+            // SQL query to select product name, category name, and price 
             string sql = @"SELECT p.ProductName, c.CategoryName, p.UnitPrice
                            FROM Products p
                            JOIN Categories c ON p.CategoryID = c.CategoryID";
@@ -24,8 +29,9 @@ namespace MyApp.Namespace
             {
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
+                    while (reader.Read()) 
                     {
+                        // Makes a new product object and fill it with data 
                         Products.Add(new Product
                         {
                             ProductName = reader.GetString(0),
