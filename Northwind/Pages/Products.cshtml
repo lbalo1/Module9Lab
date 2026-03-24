@@ -1,10 +1,13 @@
 ﻿@page
-@model MyApp.Namespace.ProductsModel
+@model ProductsModel
 @{
     ViewData["Title"] = "Northwind Products";
 }
+
+<!-- Displays the page title --> 
 <h1>@ViewData["Title"]</h1>
 
+<!-- Table to show product data --> 
 <table class="table">
     <thead>
         <tr>
@@ -14,11 +17,15 @@
         </tr>
     </thead>
     <tbody>
+        <!-- Loop through each product in the list --> 
         @foreach (var product in Model.Products)
         {
-            <tr>
-                <td>@product.ProductName</td>
+            <tr> 
+                <!-- Show product name -->
+                <td>@product.ProductName</td> 
+                <!-- Show category name -->
                 <td>@product.CategoryName</td>
+                <!-- Show price --> 
                 <td>@product.UnitPrice.ToString("C")</td>
             </tr>
         }

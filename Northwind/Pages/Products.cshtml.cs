@@ -1,16 +1,13 @@
-using System.Data.SqlClient;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 
-namespace MyApp.Namespace
-
-
-{
     public class ProductsModel : PageModel
     {
         public List<Product> Products { get; set; }
 
         // This runs when the page loads 
+        [Obsolete]
         public void OnGet()
        {
             Products = new List<Product>();
@@ -45,11 +42,12 @@ namespace MyApp.Namespace
     }
 }
 
+// Product class to store data 
 public class Product
 {
     public string ProductName { get; set; }
     public string CategoryName { get; set; }
     public decimal UnitPrice { get; set; }
 }
-    }
+
 
