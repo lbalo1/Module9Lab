@@ -8,7 +8,7 @@ namespace MyApp.Namespace
     public class CustomersModel : PageModel
     { 
         // Create a list to hold the list of customers that we retrievee from the database
-        public List<Customers> Customers { get; set; }
+        public List<Customer> Customers { get; set; }
         public void OnGet()
         {
             Customers = new List<Customer>();
